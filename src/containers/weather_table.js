@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-
 import Chart from '../components/chart';
+import GoogleMap from '../components/google_map'
 
 class WeatherTable extends Component {
     getTableRow(obj) {
@@ -13,7 +12,9 @@ class WeatherTable extends Component {
 
         return (
             <tr key={city.name}>
-                <td>{city.name}</td>
+                <td>
+                    <GoogleMap lat={city.coord.lat} lon={city.coord.lon} />
+                </td>
                 <td>
                     <Chart data={temps} color="red" units="k"></Chart>
                 </td>
